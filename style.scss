@@ -1,0 +1,163 @@
+@mixin light-weight-font {
+    font-size: 0.5rem;
+    letter-spacing: 1.5px;
+    opacity: 0.6;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+@mixin liner {
+    height: 1px;
+    background: #000;
+    // margin-top: 1rem;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    padding: 1rem;
+}
+
+main {
+    padding: 1rem;
+    border: 1px solid black;
+
+    .view-1 {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        height: 100%;
+        width: 100%;
+
+
+        h3 {
+            @include light-weight-font();
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 400;
+        }
+
+        img {
+            width: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+    }
+
+    .view-2 {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-top: 3rem;
+
+        .box1 {
+            p {
+                @include light-weight-font;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+                font-weight: 400;
+            }
+
+            button {
+                background-color: #000;
+                color: white;
+                border-style: none;
+                width: fit-content;
+                padding: 10px 15px;
+                border-radius: 10px;
+                letter-spacing: 1.5px;
+            }
+
+            .line {
+                @include liner
+            }
+        }
+
+        .box2 {
+            .box {
+                padding: 1rem;
+                display: flex;
+                flex-direction: column;
+                gap: 1.3rem;
+
+                svg {
+                    width: 4rem;
+                    aspect-ratio: 1/1;
+                }
+
+                h1 {
+                    font-size: 1.5rem;
+                    letter-spacing: 1.7px;
+                }
+
+                p {
+                    line-height: 2;
+                    word-spacing: 2px;
+                    font-size: 0.5rem;
+                }
+
+                .line {
+                    @include liner();
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1020px) {
+
+    main {
+        padding: 3rem;
+
+        .view-1 {
+
+            h1 {
+                font-size: 6rem;
+            }
+        }
+
+        .view-2 {
+            display: flex;
+            flex-direction: row;
+
+            .box1 {
+                width: 70%;
+                h1{
+                    font-size: 5rem;
+                }
+                br{
+                    display: none;
+                }
+                .line{
+                    margin-top: 2rem;
+                    height: initial;
+                    width: 1px;
+                    background-color: #000;
+                }
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            .box2{
+                width: 30%;
+            }
+        }
+    }
+
+}
